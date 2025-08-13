@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import Document from '../models/Document.js';
 import User from '../models/User.js';
+import { authenticateJWT } from '../midlewares/auth.js';
+import { isOwner, hasWriteAccess } from '../midlewares/authorization.js';
 
 const documentsRouter = Router();
 
-// Criar documento
-documentsRouter.post('/', async (req, res) => {
+// Criar documento (apenas quem tem acesso de escrita)
+documentsRouter.post('/', authenticateJWT, hasWriteAccess, async (req, res) => {
   try {
     const { title, content, ownerId, collaborators } = req.body;
     if (!title || !ownerId) {
@@ -21,8 +23,8 @@ documentsRouter.post('/', async (req, res) => {
   }
 });
 
-// Listar documentos
-documentsRouter.get('/', async (req, res) => {
+// Listar documentos (apenas autenticados)
+documentsRouter.get('/', authenticateJWT, async (req, res) => {
   try {
     const documents = await Document.findAll({ include: [{ model: User, as: 'owner', attributes: ['id', 'username', 'email'] }] });
     res.json(documents);
@@ -31,8 +33,8 @@ documentsRouter.get('/', async (req, res) => {
   }
 });
 
-// Detalhes do documento
-documentsRouter.get('/:id', async (req, res) => {
+// Detalhes do documento (apenas autenticados)
+documentsRouter.get('/:id', authenticateJWT, async (req, res) => {
   try {
     const document = await Document.findByPk(req.params.id, { include: [{ model: User, as: 'owner', attributes: ['id', 'username', 'email'] }] });
     if (!document) return res.status(404).json({ error: 'Documento não encontrado.' });
@@ -42,8 +44,8 @@ documentsRouter.get('/:id', async (req, res) => {
   }
 });
 
-// Atualizar documento
-documentsRouter.put('/:id', async (req, res) => {
+// Atualizar documento (apenas quem tem acesso de escrita)
+documentsRouter.put('/:id', authenticateJWT, hasWriteAccess, async (req, res) => {
   try {
     const { title, content, collaborators } = req.body;
     const document = await Document.findByPk(req.params.id);
@@ -60,8 +62,8 @@ documentsRouter.put('/:id', async (req, res) => {
   }
 });
 
-// Remover documento
-documentsRouter.delete('/:id', async (req, res) => {
+// Remover documento (apenas owner ou admin)
+documentsRouter.delete('/:id', authenticateJWT, isOwner, async (req, res) => {
   try {
     const document = await Document.findByPk(req.params.id);
     if (!document) return res.status(404).json({ error: 'Documento não encontrado.' });

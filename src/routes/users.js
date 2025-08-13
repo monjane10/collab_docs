@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
+import { authenticateJWT } from '../midlewares/auth.js';
 
 const router = Router();
 
@@ -20,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 // Listar utilizadores
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   try {
     const users = await User.findAll({ attributes: ['id', 'username', 'email', 'role', 'createdAt'] });
     res.json(users);
@@ -30,7 +31,7 @@ router.get('/', async (req, res) => {
 });
 
 // Detalhes de utilizador
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateJWT, async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id, { attributes: ['id', 'username', 'email', 'role', 'createdAt'] });
     if (!user) return res.status(404).json({ error: 'Utilizador não encontrado.' });
@@ -41,7 +42,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Atualizar utilizador
-router.put('/:id', async (req, res) => {
+router.put('/:id', authenticateJWT, async (req, res) => {
   try {
     const { username, email, password, role } = req.body;
     const user = await User.findByPk(req.params.id);
@@ -58,7 +59,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Remover utilizador
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateJWT, async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id);
     if (!user) return res.status(404).json({ error: 'Utilizador não encontrado.' });

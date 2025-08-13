@@ -2,12 +2,12 @@ import { Router } from 'express';
 import Permission from '../models/Permission.js';
 import User from '../models/User.js';
 import Document from '../models/Document.js';
+import { authenticateJWT } from '../midlewares/auth.js';
 
 const permissionsRouter = Router();
 
-
 // Definir permissão de utilizador num documento
-permissionsRouter.post('/', async (req, res) => {
+permissionsRouter.post('/', authenticateJWT, async (req, res) => {
     try {
         const { userId, documentId, access } = req.body;
         if (!userId || !documentId || !access) {
@@ -21,7 +21,7 @@ permissionsRouter.post('/', async (req, res) => {
 });
 
 // Listar permissões de um documento
-permissionsRouter.get('/:documentId', async (req, res) => {
+permissionsRouter.get('/:documentId', authenticateJWT, async (req, res) => {
     try {
         const permissions = await Permission.findAll({
             where: { documentId: req.params.documentId },

@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import Revision from '../models/Revision.js';
 import Document from '../models/Document.js';
-import User from '../models/User.js';
+import { authenticateJWT } from '../midlewares/auth.js';
 
 const revisionRrouter = Router();
 
 // Listar revisões de um documento
-revisionRrouter.get('/:documentId', async (req, res) => {
+revisionRrouter.get('/:documentId', authenticateJWT, async (req, res) => {
     try {
         const revisions = await Revision.findAll({
             where: { documentId: req.params.documentId },
@@ -25,7 +25,7 @@ revisionRrouter.get('/:documentId', async (req, res) => {
 });
 
 // Criar revisão automática ao atualizar documento
-revisionRrouter.post('/:documentId/auto', async (req, res) => {
+revisionRrouter.post('/:documentId/auto', authenticateJWT, async (req, res) => {
     try {
         const { content, editedById } = req.body;
         const document = await Document.findByPk(req.params.documentId);
@@ -42,7 +42,7 @@ revisionRrouter.post('/:documentId/auto', async (req, res) => {
 });
 
 // Reverter para uma revisão
-revisionRrouter.post('/:documentId/revert', async (req, res) => {
+revisionRrouter.post('/:documentId/revert', authenticateJWT, async (req, res) => {
     try {
         const { revisionId } = req.body;
         const revision = await Revision.findByPk(revisionId);
