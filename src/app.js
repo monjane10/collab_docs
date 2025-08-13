@@ -6,12 +6,15 @@ import router from './routes/index.js';
 import 'dotenv/config';
 import http from 'http';
 import { setupCollabSocket } from './socket/collab.js';
+import { errorHandler } from './midlewares/errorHandler.js';
  
 const app = express();
 //usar o express
 app.use(express.json()); 
  // Usa as rotas definidas
 app.use(router);
+//Midleware para tratamento de erros
+app.use(errorHandler);
 
 
 
