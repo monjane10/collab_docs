@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import Revision from '../models/Revision.js';
 
-const router = Router();
+const revisionRrouter = Router();
 
 // Listar revisões de um documento
-router.get('/:documentId', async (req, res) => {
+revisionRrouter.get('/:documentId', async (req, res) => {
   try {
     const revisions = await Revision.findAll({ where: { documentId: req.params.documentId } });
     res.json(revisions);
@@ -14,7 +14,7 @@ router.get('/:documentId', async (req, res) => {
 });
 
 // Reverter para uma revisão
-router.post('/:documentId/revert', async (req, res) => {
+revisionRrouter.post('/:documentId/revert', async (req, res) => {
   try {
     const { revisionId } = req.body;
     const revision = await Revision.findByPk(revisionId);
@@ -26,4 +26,4 @@ router.post('/:documentId/revert', async (req, res) => {
   }
 });
 
-export default router;
+export default revisionRrouter;
