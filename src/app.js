@@ -2,8 +2,9 @@ import express from 'express';
 import './utils/database.js';
 import sequelize from './utils/database.js';
 import './models/index.js'; 
-import router from './routes/index.js'; // Importa as rotas
-
+import router from './routes/index.js';
+import 'dotenv/config';
+ 
 const app = express();
 //usar o express
 app.use(express.json()); 

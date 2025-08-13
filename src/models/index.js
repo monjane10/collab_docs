@@ -8,7 +8,7 @@ import Permission from './Permission.js';
 Document.belongsTo(User, { as: 'owner', foreignKey: 'ownerId' });
 Document.belongsToMany(User, { as: 'collaborators', through: 'DocumentCollaborators' });
 Revision.belongsTo(Document, { foreignKey: 'documentId' });
-Revision.belongsTo(User, { foreignKey: 'editedById' });
+Revision.belongsTo(User, { as: 'editor', foreignKey: 'editedById' });
 Permission.belongsTo(User, { foreignKey: 'userId' });
 Permission.belongsTo(Document, { foreignKey: 'documentId' });
 
