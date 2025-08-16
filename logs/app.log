@@ -1,2 +1,61 @@
 {"level":"info","message":"Login realizado com sucesso","timestamp":"2025-08-16T10:43:21.125Z","userId":1}
 {"level":"info","message":"Utilizadores listados","timestamp":"2025-08-16T10:43:56.731Z","userId":1}
+{"level":"info","message":"Utilizador criado","timestamp":"2025-08-16T11:40:23.595Z","userId":4}
+{"level":"info","message":"Login realizado com sucesso","timestamp":"2025-08-16T11:40:28.950Z","userId":4}
+{"level":"info","message":"Login realizado com sucesso","timestamp":"2025-08-16T11:45:05.806Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T11:46:20.683Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T11:46:20.695Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T11:46:26.958Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T11:46:26.972Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T11:46:46.098Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T11:46:46.110Z","userId":1}
+{"level":"info","message":"Login realizado com sucesso","timestamp":"2025-08-16T11:53:32.658Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:01:38.897Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:01:38.907Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:04:50.508Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:04:50.517Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:05:56.389Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:05:56.401Z","userId":1}
+{"level":"info","message":"Login realizado com sucesso","timestamp":"2025-08-16T12:05:59.529Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:05:59.562Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:05:59.599Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:10:26.245Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:10:26.258Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:40:11.299Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:40:15.279Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:41:05.080Z","userId":1}
+{"level":"info","message":"Login realizado com sucesso","timestamp":"2025-08-16T12:41:09.583Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:41:10.500Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:42:12.800Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:43:31.249Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:51:54.815Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T12:52:02.153Z","userId":1}
+{"level":"info","message":"Login realizado com sucesso","timestamp":"2025-08-16T13:02:04.688Z","userId":1}
+{"documentId":2,"level":"info","message":"Documento consultado","timestamp":"2025-08-16T13:02:06.626Z","userId":1}
+{"documentId":3,"level":"info","message":"Documento criado","timestamp":"2025-08-16T13:59:21.695Z","userId":1}
+{"documentId":2,"level":"info","message":"Documento consultado","timestamp":"2025-08-16T13:59:25.167Z","userId":1}
+{"documentId":2,"level":"info","message":"Documento consultado","timestamp":"2025-08-16T13:59:34.581Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:01:18.585Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:01:23.343Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:04:26.842Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:04:40.603Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:04:48.604Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:16:33.128Z","userId":1}
+{"documentId":"2","level":"info","message":"Documento removido","timestamp":"2025-08-16T14:19:55.793Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:19:58.924Z","userId":1}
+{"documentId":4,"level":"info","message":"Documento criado","timestamp":"2025-08-16T14:20:25.892Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:20:27.398Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:26:29.147Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:33:47.806Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:42:33.365Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:48:07.667Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:48:13.336Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:51:10.625Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T14:52:47.068Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T15:01:21.846Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T15:01:26.974Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T15:08:05.911Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T15:10:04.702Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T15:10:59.069Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T15:11:03.123Z","userId":1}
+{"level":"info","message":"Documentos listados","timestamp":"2025-08-16T15:14:02.966Z","userId":1}

@@ -62,7 +62,8 @@ export const createDocument = async (req, res) => {
       return res.status(400).json({ error: 'Título e ownerId são obrigatórios.' });
     }
     const document = await Document.create({ title, content, ownerId });
-    if (collaborators && Array.isArray(collaborators)) {
+    // Só chama setCollaborators se document.id existir e collaborators for array
+    if (document && document.id && collaborators && Array.isArray(collaborators)) {
       await document.setCollaborators(collaborators);
     }
     logger.info('Documento criado', { documentId: document.id, userId: req.user.id });

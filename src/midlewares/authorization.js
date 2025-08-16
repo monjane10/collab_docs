@@ -15,6 +15,9 @@ export async function isOwner(req, res, next) {
 
 export async function hasWriteAccess(req, res, next) {
   const documentId = req.params.id || req.params.documentId;
+  if (!documentId) {
+    return res.status(400).json({ error: 'documentId é obrigatório para verificação de permissão.' });
+  }
   if (req.user.role === 'admin') return next();
   const permission = await Permission.findOne({ where: { userId: req.user.id, documentId } });
   if (permission && (permission.access === 'write' || permission.access === 'admin')) return next();

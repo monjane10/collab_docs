@@ -54,8 +54,13 @@ export const setPermission = async (req, res) => {
 
 export const listPermissions = async (req, res) => {
     try {
+        const { documentId } = req.params;
+        if (!documentId) {
+            logger.warn('Tentativa de listar permissões sem documentId', { userId: req.user.id });
+            return res.status(400).json({ error: 'documentId é obrigatório na URL.' });
+        }
         const permissions = await Permission.findAll({
-            where: { documentId: req.params.documentId },
+            where: { documentId },
             include: [
                 {
                     model: User,

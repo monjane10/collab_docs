@@ -7,7 +7,7 @@ import { isOwner, hasWriteAccess } from '../midlewares/authorization.js';
 const documentsRouter = Router();
 
 // Criar documento (apenas quem tem acesso de escrita)
-documentsRouter.post('/', authenticateJWT, hasWriteAccess, createDocument);
+documentsRouter.post('/', authenticateJWT,createDocument);
 
 // Listar documentos (apenas autenticados)
 documentsRouter.get('/', authenticateJWT, listDocuments);

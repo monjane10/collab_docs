@@ -5,10 +5,14 @@ import './models/index.js';
 import router from './routes/index.js';
 import 'dotenv/config';
 import http from 'http';
-import { setupCollabSocket } from './socket/collab.js';
 import { errorHandler } from './midlewares/errorHandler.js';
+import cors from 'cors';   
+
+
  
 const app = express();
+
+app.use(cors());
 //usar o express
 app.use(express.json()); 
  // Usa as rotas definidas
@@ -25,9 +29,6 @@ sequelize.authenticate()
   })
   .then(() => console.log('Tabelas sincronizadas com sucesso!'))
   .catch(err => console.error('Erro ao conectar/sincronizar com MySQL:', err));
-
-const server = http.createServer(app);
-setupCollabSocket(server);
 
   
 export default app;
