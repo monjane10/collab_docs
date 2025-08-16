@@ -7,12 +7,12 @@ import authRouter from './auth.js';
 import metricsRouter from './metrics.js'
 
 const router = Router();
-router.use('/login', authRouter); // Import and use the auth routes
+router.use('/login', authRouter); 
 router.use('/users', usersRouter);
 router.use('/documents', documentsRouter);
 router.use('/permissions', permissionsRouter);
 router.use('/revisions', revisionRrouter);
-router.use('/metrics', metricsRouter); // Import and use the metrics routes
+router.use('/metrics', metricsRouter);
 
 
 
