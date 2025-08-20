@@ -11,5 +11,7 @@ Revision.belongsTo(Document, { foreignKey: 'documentId' });
 Revision.belongsTo(User, { as: 'editor', foreignKey: 'editedById' });
 Permission.belongsTo(User, { foreignKey: 'userId' });
 Permission.belongsTo(Document, { foreignKey: 'documentId' });
+User.hasMany(Document, { as: 'documents', foreignKey: 'ownerId' });
+User.hasMany(Revision, { as: 'revisions', foreignKey: 'editedById' });
 
 export { User, Document, Revision, Permission };
