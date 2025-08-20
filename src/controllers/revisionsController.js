@@ -1,3 +1,5 @@
+import User from '../models/User.js';
+
 export const revertRevision = async (req, res) => {
   try {
     const { revisionId } = req.body;
@@ -26,14 +28,36 @@ import logger from '../utils/logger.js';
 
 export const listRevisions = async (req, res) => {
   try {
-    const revisions = await Revision.findAll({ where: { documentId: req.params.documentId } });
-    logger.info('Revisões listadas', { documentId: req.params.documentId, userId: req.user.id });
+    const revisions = await Revision.findAll({
+      where: { documentId: req.params.documentId },
+      include: [
+        {
+          model: User,
+          as: "editor", 
+          attributes: ["id", "username"] // só pega o que você precisa
+        }
+      ]
+    });
+
+    console.log("DocumentId recebido:", req.params.documentId);
+    console.log("Revisões encontradas:", revisions.length);
+
+    logger.info("Revisões listadas", {
+      documentId: req.params.documentId,
+      userId: req.user.id,
+      username: req.user.username
+    });
+
     res.json(revisions);
   } catch (err) {
-    logger.error('Erro ao listar revisões', { error: err.message, userId: req.user.id });
-    res.status(500).json({ error: 'Erro ao listar revisões.' });
+    logger.error("Erro ao listar revisões", {
+      error: err.message,
+      userId: req.user.id
+    });
+    res.status(500).json({ error: "Erro ao listar revisões." });
   }
 };
+
 
 export const createAutoRevision = async (req, res) => {
   try {
