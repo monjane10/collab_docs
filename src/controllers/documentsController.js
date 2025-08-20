@@ -74,9 +74,15 @@ export const createDocument = async (req, res) => {
   }
 };
 
+
 export const listDocuments = async (req, res) => {
   try {
-    const documents = await Document.findAll({ include: [{ model: User, as: 'owner', attributes: ['id', 'username', 'email'] }] });
+    const documents = await Document.findAll({
+      include: [
+        { model: User, as: 'owner', attributes: ['id', 'username', 'email'] }
+      ],
+      order: [['updatedAt', 'DESC']] // ordena do mais recente para o mais antigo
+    });
     logger.info('Documentos listados', { userId: req.user.id });
     res.json(documents);
   } catch (err) {
@@ -88,19 +94,20 @@ export const listDocuments = async (req, res) => {
 // Lista documentos de um utilizador específico
 export const listDocumentsByUser = async (req, res) => {
   try {
-    const { userId } = req.params; 
+    const { userId } = req.params;
     if (!userId) {
       return res.status(400).json({ error: "userId é obrigatório" });
     }
     const documents = await Document.findAll({
-      where: { ownerId: userId }, 
+      where: { ownerId: userId },
       include: [{ model: User, as: 'owner', attributes: ['id', 'username', 'email'] }]
     });
-    logger.info('Documentos listados por usuário', { userId: req.user.usaername, requestedUserId: userId });
+    logger.info('Documentos listados por usuário', { userId: req.user.username, requestedUserId: userId });
     res.json(documents);
   } catch (err) {
     logger.error('Erro ao listar documentos por usuário', { error: err.message, userId: req.user.id });
     res.status(500).json({ error: 'Erro ao listar documentos.' });
   }
 };
+
 
