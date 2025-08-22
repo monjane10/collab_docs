@@ -1,4 +1,3 @@
-// utils/database.js
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -11,7 +10,13 @@ const sequelize = new Sequelize(
     host: process.env.DATABASE_HOST,
     port: process.env.DATABASE_PORT,
     dialect: 'postgres',
-    logging: false
+    logging: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // necessário para Render
+      },
+    },
   }
 );
 
