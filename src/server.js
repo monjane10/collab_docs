@@ -9,7 +9,17 @@ const server = http.createServer(app);
 setupCollabSocket(server);
 
 app.get('/', (req, res) => {
-  res.send('Backend rodando corretamente!');
+  res.send(  res.send(`
+    <h1>Collab Docs Backend</h1>
+    <p>O backend está rodando corretamente!</p>
+    <p>Endpoints disponíveis:</p>
+    <ul>
+      <li>/users</li>
+      <li>/documents</li>
+      <li>/login</li>
+      <li>/register</li>
+    </ul>
+  `));
 });
 
 server.listen(PORTA, () => {
