@@ -8,6 +8,10 @@ const PORTA = process.env.PORTA || 3000;
 const server = http.createServer(app);
 setupCollabSocket(server);
 
+app.get('/', (req, res) => {
+  res.send('Backend rodando corretamente!');
+});
+
 server.listen(PORTA, () => {
   console.log(`Servidor rodando na porta: http://localhost:${PORTA}`);
 });
