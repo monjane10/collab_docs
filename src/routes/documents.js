@@ -12,7 +12,7 @@ documentsRouter.post('/', authenticateJWT,createDocument);
 // Listar documentos (apenas autenticados)
 documentsRouter.get('/', authenticateJWT, listDocuments);
 
-documentsRouter.get('user/:userId', listDocumentsByUser);
+documentsRouter.get('/user/:userId', listDocumentsByUser);
 
 // Detalhes do documento (apenas autenticados)
 documentsRouter.get('/:id', authenticateJWT,authenticateJWT, getDocumentDetails);
